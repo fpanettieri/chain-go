@@ -12,15 +12,14 @@ import (
 )
 
 const BASE_URL = "https://api.chain.com/v2/bitcoin/"
-const API_KEY = "YOUR-PUBLIC-API-KEY"
 
-func ChainUrl(path string) string {
+func ChainUrl(path string, key string) string {
 	params := url.Values{}
-	return ChainUrlParams(path, params)
+	return ChainUrlParams(path, params, key)
 }
 
-func ChainUrlParams(path string, params url.Values) string {
-	params.Add("api-key-id", API_KEY)
+func ChainUrlParams(path string, params url.Values, key string) string {
+	params.Add("api-key-id", key)
 	return fmt.Sprintf("%s%s?%s", BASE_URL, path, params.Encode())
 }
 
