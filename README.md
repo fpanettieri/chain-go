@@ -1,0 +1,1 @@
+Util functions used to connect the coinding API with chain.com API
